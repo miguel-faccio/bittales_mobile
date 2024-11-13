@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Compatibilidade</title>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-image: url("img/love\ \(2\).png");
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            color: #333;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            align-items: center; /* Alinha o ícone verticalmente no centro */
+            padding: 8px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 11px;
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            z-index: 10;
+            
+        }
+        nav img {
+             width: 24px;      /* Ajuste o tamanho conforme necessário */
+             height: 24px;     /* Ajuste o tamanho conforme necessário */
+             cursor: pointer; /* Torna o ícone clicável, se necessário */
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #BD1340;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #E82E6A;
+        }
+
+        .container {
+            width: 80%;
+    max-width: 350px; /* Reduzir o tamanho máximo para dispositivos menores */
+    padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            z-index: 1;
+            transition: transform 0.3s;
+        }
+        
+        .container:hover {
+            transform: scale(1.02); /* Aumenta ligeiramente o card ao passar o mouse */
+        }
+
+        h1 {
+            margin-top: 0;
+            color: #BD1340;
+            font-size: 2.5em; /* Tamanho do título */
+        }
+
+        input[type="text"] {
+            background-color: #FF8EBE;
+            width: 100%;
+            padding: 15px;
+            margin: 15px 0;
+            border: 2px solid #e82e69;
+            border-radius: 10px;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.348);
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            border-color: #BD1340;
+            outline: none; /* Remove o contorno padrão do input */
+        }
+
+        button {
+    padding: 12px 24px; /* Reduzindo ligeiramente o padding para se ajustar melhor em telas pequenas */
+    background-color: #BD1340;
+    box-shadow: 0 4px 6px rgba(189, 19, 64, 0.5); /* Suavizando a sombra */
+    color: #fff;
+    border: none;
+    border-radius: 8px; /* Arredondamento ligeiramente menor */
+    cursor: pointer;
+    font-size: 1em; /* Um tamanho de fonte mais adaptável */
+    font-weight: bold; /* Tornar o texto do botão mais destacado */
+    transition: background-color 0.3s, transform 0.2s;
+    width: 100%; /* O botão ocupará toda a largura do container em dispositivos móveis */
+    max-width: 300px; /* Definir uma largura máxima para evitar que fique muito grande */
+}
+
+button:hover {
+    background-color: #E82E6A;
+    transform: translateY(-3px); /* Efeito de elevação ligeiramente mais acentuado */
+}
+
+        
+        #resultado {
+            font-size: 18px;
+            margin-top: 10px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            color: #BD1340;
+        }
+
+        #resultado.mostrar {
+            opacity: 1;
+        }
+
+        /* Estilos do Modal */
+        .modal {
+            display: none; /* Ocultar o modal por padrão */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro */
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: auto;
+            padding: 30px;
+            border: 3px solid #BD1340;
+            border-radius: 15px;
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        }
+
+        .close {
+            color: #BD1340;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #e82e6a;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        h2 {
+            color: #BD1340; /* Cor do título do modal */
+            margin-bottom: 15px; /* Espaço abaixo do título */
+        }
+
+        p {
+            color: #333; /* Cor do texto do modal */
+            font-size: 1.1em; /* Tamanho do texto do modal */
+            margin: 10px 0; /* Margem em cima e em baixo dos parágrafos */
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <!-- Link com a tag <a>, que usa a imagem como botão para voltar -->
+        <a href="bitTales.html">
+            <img src="img/vire-a-esquerda.png" alt="Ícone de Navegação">
+        </a>
+    </nav>
+
+    <div class="container">
+        <h1>Teste de Compatibilidade</h1>
+        <input type="text" id="nome1" placeholder="Seu Nome">
+        <input type="text" id="nome2" placeholder="Nome do Crush">
+        <button onclick="calcularCompatibilidade()">Calcular</button>
+        <div id="resultado"></div>
+        <button id="tentarNovamente" onclick="tentarNovamente()" style="display: none; margin-top: 10px;">Tentar Novamente</button>
+    </div>
+
+    <!-- Modal de Introdução -->
+    <div id="introModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2>Bem-vindo ao Teste de Compatibilidade!</h2>
+            <img src="img/nerdzig.png" alt="Imagem de Bem-vindo" style="width: 40%; border-radius: 8px; margin-bottom: 10px;">
+            <p>Descubra o quão compatíveis você e seu crush são, digitando seus nomes abaixo.</p>
+            <p>Vamos nos divertir e descobrir o amor!</p>
+        </div>
+    </div>
+
+    <script>
+        function calcularCompatibilidade() {
+            const nome1 = document.getElementById("nome1").value.trim().toLowerCase();
+            const nome2 = document.getElementById("nome2").value.trim().toLowerCase();
+    
+            if (!nome1 || !nome2) {
+                alert("Por favor, preencha ambos os nomes!");
+                return;
+            }
+    
+            function calcularValorLetra(letra) {
+                return letra.charCodeAt(0) - 96;
+            }
+    
+            let somaTotal = 0;
+            [...nome1, ...nome2].forEach(letra => {
+                if (letra >= 'a' && letra <= 'z') somaTotal += calcularValorLetra(letra);
+            });
+    
+            const porcentagem = Math.min(somaTotal / 2, 100).toFixed(0);
+            const mensagem = porcentagem >= 80 ? "Vocês são alma gêmea!"
+                        : porcentagem >= 60 ? "Há uma grande compatibilidade!"
+                        : porcentagem >= 40 ? "Existe alguma compatibilidade!"
+                        : "Hmm... Talvez não seja tão compatível!";
+    
+            document.querySelector("#resultado").innerHTML = `<p>Compatibilidade: ${porcentagem}%</p><p>${mensagem}</p>`;
+            document.querySelector("#resultado").classList.add("mostrar");
+    
+            // Exibir o botão "Tentar Novamente"
+            document.getElementById("tentarNovamente").style.display = "block";
+        }
+    
+        function tentarNovamente() {
+            document.getElementById("nome1").value = "";
+            document.getElementById("nome2").value = "";
+            document.getElementById("resultado").innerHTML = "";
+            document.getElementById("resultado").classList.remove("mostrar");
+            document.getElementById("tentarNovamente").style.display = "none";
+        }
+
+        function voltarParaPaginaInicial() {
+    console.log("Imagem clicada, tentando redirecionar para a página inicial...");
+    window.location.href = "index.html"; // Altere para o caminho correto se necessário
+}
+    </script>
+    
+</body>
+</html>

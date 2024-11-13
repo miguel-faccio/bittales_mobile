@@ -1,0 +1,109 @@
+{
+    "name": "Bit Tales",
+    "short_name": "Bit Tales",
+    "description": "Um aplicativo com diversos jogos divertidos.",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#6da37e",
+    "theme_color": "#6da37e",
+    "orientation": "portrait",
+    "icons": [
+      {
+        "src": "/icons/icon-192x192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "/icons/icon-512x512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ],
+    "applications": [
+      {
+        "name": "Teste de Compatibilidade",
+        "short_name": "Compatibilidade",
+        "description": "Descubra a compatibilidade entre você e seu crush!",
+        "start_url": "/love.html",
+        "display": "standalone",
+        "background_color": "#ffffff",
+        "theme_color": "#BD1340",
+        "icons": [
+          {
+            "src": "/img/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+          },
+          {
+            "src": "/img/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+          }
+        ]
+      },
+      {
+        "name": "Jogo da Velha",
+        "short_name": "JogoVelha",
+        "description": "Um jogo da velha simples e divertido!",
+        "start_url": "/",
+        "display": "standalone",
+        "background_color": "#CEF2B4",
+        "theme_color": "#4CAF50",
+        "icons": [
+          {
+            "src": "/icons/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+          },
+          {
+            "src": "/icons/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+          }
+        ]
+      },
+      {
+        "name": "Jogo da Forca",
+        "short_name": "Forca",
+        "description": "Um jogo da forca divertido para jogar no navegador.",
+        "start_url": "/forca.html",
+        "display": "standalone",
+        "background_color": "#f0f4f8",
+        "theme_color": "#2a4d69",
+        "icons": [
+          {
+            "src": "/icons/forca-icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+          },
+          {
+            "src": "/icons/forca-icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+          }
+        ]
+      },
+      {
+        "name": "Quiz de Perguntas e Respostas",
+        "short_name": "Quiz",
+        "description": "Teste seus conhecimentos com este quiz divertido.",
+        "start_url": "/quiz.html",
+        "display": "standalone",
+        "background_color": "#f2f0d8",
+        "theme_color": "#8C3807",
+        "icons": [
+          {
+            "src": "/icons/quiz-icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+          },
+          {
+            "src": "/icons/quiz-icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+          }
+        ]
+      }
+    ]
+  }
+  

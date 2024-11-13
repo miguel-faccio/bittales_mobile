@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="notic.css">
+    <link rel="manifest" href="/manifest.json">
+    <title>Bit Tales</title>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js')
+                .then(registration => console.log('Service Worker registrado:', registration))
+                .catch(error => console.log('Falha ao registrar o Service Worker:', error));
+        }
+    </script>
+</head>
+<body>
+    <!-- Cabeçalho com título e barra de navegação -->
+    <header class="header">
+        <h1>Bit Tales</h1>
+        <div class="icons">
+            <a href="bitTales.html" title="Página Inicial">
+                <img src="incons/House Line.png" alt="Home">
+            </a>
+            <a href="notic.html" title="Contos">
+                <img src="incons/Cil Newspaper.png" alt="Contos">
+            </a>
+        
+        </div>
+    </header>
+
+    <!-- Primeira caixa de notícias -->
+    <section id="news-top">
+        <div class="news-card">
+            <img src="img/Cute Red Streaming Twitch Banner 1.png" alt="Bem-Vindos ao Bit Tales">
+            <p>Bem Vindos ao Bit Tales, onde histórias e diversão se encontram!</p>
+        </div>
+    </section>
+
+    <!-- Espaço para o ícone central -->
+    <div id="icon-space">
+        <img src="img/deitado 2.png" alt="Ícone Central">
+    </div>
+
+    <!-- Segunda caixa de notícias -->
+    <section id="news-bottom">
+        <div class="news-card">
+            <p>Confira mais novidades e conteúdos exclusivos aqui!</p>
+        </div>
+    </section>
+</body>
+</html>

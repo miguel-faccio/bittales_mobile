@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Memória</title>
+    <link rel="stylesheet" href="me.css">
+</head>
+<body>
+    <!-- Barra de navegação -->
+    <nav class="navbar">
+        <h1>Jogo da Memória</h1>
+        <a href="bitTales.html" class="nav-link">Home</a>
+        
+    </nav>
+
+    <div id="timer">Tempo: 0s</div>
+    <div id="record">Recorde: Nenhum</div>
+    <div id="game-board" class="game-board"></div>
+    <button id="restart-btn">Jogar Novamente</button>
+
+    <!-- Modal de vitória -->
+    <div id="win-modal" class="modal">
+        <div class="modal-content">
+            <span id="close-modal" class="close">&times;</span>
+            <h2>Parabéns!</h2>
+            <p id="win-message"></p>
+            <button id="play-again">Jogar Novamente</button>
+        </div>
+    </div>
+
+    <script src="me.js"></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="inicial.css">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#6da37e">
+    <title>Bit Tales PWA</title>
+</head>
+<body>
+  
+    <header class="header">
+        <h1>Bit Tales</h1>
+        <div class="icons">
+            <a href="bitTales.html" title="Página Inicial">
+                <img src="incons/House Line.png" alt="Home">
+            </a>
+            <a href="notic.html" title="Contos">
+                <img src="incons/Cil Newspaper.png" alt="Contos">
+            </a>
+        
+        </div>
+    </header>
+    
+    <main class="content">
+        <div class="card-grid">
+           
+            <div class="card" data-jogo="love">
+                <img src="img/love.png" alt="Love">
+                <a href="love.html">Teste de Compatibilidade</a>
+            </div>
+            
+            <div class="card" data-jogo="velha">
+                <img src="img/velha.png" alt="Jogo da Velha">
+                <a href="velha.html">Jogo da Velha</a>
+            </div>
+
+            <div class="card" data-jogo="velha">
+                <img src="img/game Clique Mania.png" alt="Jogo da Velha">
+                <a href="click.html">Clique Mania</a>
+            </div>
+
+            <div class="card" data-jogo="velha">
+                <img src="img/memory.jpg" alt="Jogo da Velha">
+                <a href="me.html">Memory</a>
+            </div>
+
+            <div class="card" data-jogo="velha">
+                <img src="img/memory (1).jpg" alt="Jogo da Velha">
+                <a href="forca.html">Memory</a>
+            </div>
+
+            <div class="card" data-jogo="velha">
+                <img src="img/QUIZ.png" alt="Jogo da Velha">
+                <a href="quiz.html">Quiz</a>
+            </div>
+
+    
+           
+        
+    </main>
+    
+    
+    <script>
+
+        // Exibe o modal quando a página é carregada
+window.onload = function() {
+  var modal = document.getElementById("welcomeModal");
+  var span = document.getElementsByClassName("close")[0];
+
+  // Exibe o modal
+  modal.style.display = "block";
+
+  // Quando o usuário clica no "x", fecha o modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  // Fecha o modal se o usuário clicar fora dele
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+}
+
+        
+        function redirecionarPagina() {
+            console.log("Botão clicado, tentando redirecionar...");
+            window.location.href = "/love.html";
+        }
+
+        // Adiciona evento de clique a cada card
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('click', () => {
+                const jogo = card.getAttribute('data-jogo');
+                console.log(`Card clicado: ${jogo}`);
+                abrirJogo(jogo);
+            });
+        });
+    </script>
+</body>
+</html>

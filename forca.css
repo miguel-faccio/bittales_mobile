@@ -1,0 +1,222 @@
+/* Estilo geral do corpo e fonte */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-image: url("img/Design sem nome (2).jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #333;
+    margin: 0;
+    padding: 10px;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Barra de navegação */
+nav {
+    background-color: #0d2f5abd;
+    color: white;
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* Contêiner principal do jogo */
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 60px;
+    box-sizing: border-box;
+}
+
+/* Título */
+h1 {
+    font-size: 2em;
+    color: #2a4d69;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Controles */
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* Estilo para o grupo do select e botão */
+.select-button-group {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaço entre o select e o botão */
+}
+
+/* Categoria */
+select {
+    padding: 8px;
+    font-size: 0.9em;
+    border: 2px solid #4d648d;
+    border-radius: 8px;
+    background-color: #f7f7f7;
+    color: #333;
+    width: 150px; /* Tamanho reduzido do select */
+}
+
+button {
+    background-color: #0b2e6a;
+    color: #f0f4f8;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #3b5069;
+}
+
+/* Palavra */
+#word {
+    font-size: 1.8em;
+    color: #2a4d69;
+    margin: 15px;
+    letter-spacing: 0.15em;
+    text-align: center;
+}
+
+/* Mensagens */
+#message, #mistakes {
+    font-size: 1.2em;
+    color: #ba0000;
+    text-align: center;
+    margin: 5px 0;
+}
+
+/* Canvas */
+#hangmanCanvas {
+    width: 100%;
+    max-width: 120px;
+    height: auto;
+    background-color: #e3e8ed;
+    border: 2px solid #4d648d;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+/* Alfabeto em grade */
+#alphabet {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    margin: 15px 0;
+    width: 100%;
+}
+
+#alphabet button {
+    background-color: #aab6b8;
+    color: #333;
+    border: none;
+    border-radius: 3px;
+    padding: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+#alphabet button:hover {
+    background-color: #6b8b8d;
+}
+
+#alphabet button:disabled {
+    background-color: #e0e0e0;
+    color: #999;
+    cursor: not-allowed;
+}
+
+/* Botão de jogar novamente */
+#playAgainButton {
+    padding: 10px 20px;
+    background-color: #4f50b4;
+    color: white;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 5px;
+    max-width: 200px;
+    width: 100%;
+}
+
+#playAgainButton:hover {
+    background-color: #4577a0;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .game-container {
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    #alphabet {
+        gap: 3px;
+    }
+
+    button, #playAgainButton {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.6em;
+    }
+
+    #word {
+        font-size: 1.5em;
+    }
+
+    button, #playAgainButton {
+        font-size: 0.9em;
+    }
+
+    .select-button-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}

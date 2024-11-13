@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Forca</title>
+    <link rel="stylesheet" href="forca.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="bitTales.html">Início</a></li>
+        </ul>
+    </nav>
+    <div class="game-container">
+        <h1>Jogo da Forca</h1>
+
+        <!-- Controles de categoria e botão iniciar -->
+        <div class="controls">
+            <label for="category">Escolha uma categoria:</label>
+            <div class="select-button-group">
+                <select id="category">
+                    <option value="frutas">Frutas</option>
+                    <option value="animais">Animais</option>
+                    <option value="cores">Cores</option>
+                </select>
+                <button onclick="startGame()">Iniciar</button>
+            </div>
+        </div>
+
+        <!-- Área principal do jogo -->
+        <div class="game-area">
+            <p id="word">_ _ _ _</p>
+            <div id="alphabet"></div>
+            <canvas id="hangmanCanvas" width="200" height="200"></canvas>
+            <p id="mistakes">Erros: 0</p>
+            <p id="message"></p>
+            <button id="playAgainButton" onclick="startGame()">Jogar Novamente</button>
+        </div>
+    </div>
+
+    <script src="forca.js"></script>
+</body>
+</html>

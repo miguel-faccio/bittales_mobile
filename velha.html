@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Velha</title>
+    <link rel="stylesheet" href="velha.css">
+    <link rel="manifest" href="manifest.json">
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+                console.log('Service Worker registrado com sucesso:', registration);
+            }).catch(function(error) {
+                console.log('Falha ao registrar o Service Worker:', error);
+            });
+        }
+    </script>
+</head>
+<body>
+    <nav>
+        <h1>Jogo da Velha</h1>
+        <div class="header-buttons">
+            <button id="newGame">Novo Jogo</button>
+            <button id="menu"> <a href="bitTales.html">Menu</a></button>
+        </div>
+    </nav>
+    <div class="container">
+        <div id="turnIndicator">Vez do jogador: X</div>
+        <div class="grid" id="grid">
+            <div class="cell" data-index="0"></div>
+            <div class="cell" data-index="1"></div>
+            <div class="cell" data-index="2"></div>
+            <div class="cell" data-index="3"></div>
+            <div class="cell" data-index="4"></div>
+            <div class="cell" data-index="5"></div>
+            <div class="cell" data-index="6"></div>
+            <div class="cell" data-index="7"></div>
+            <div class="cell" data-index="8"></div>
+        </div>
+        <div id="message"></div>
+    </div>
+    <script src="velha.js"></script>
+</body>
+</html>

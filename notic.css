@@ -1,0 +1,116 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: url('img/main 1.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    background-color: rgba(109, 163, 126, 0.586); /* Leve transparência para destacar o conteúdo */
+    color: white;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo do título */
+.header h1 {
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+/* Ícones do header */
+.icons {
+    display: flex;
+    gap: 0.5em;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #6da37e;
+    font-size: 1.2em;
+}
+
+/* Seções de notícias */
+#news-top, #news-bottom {
+    width: 95%;
+    max-width: 500px;
+    margin: 1.5rem 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.news-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+}
+
+.news-card img {
+    width: 90%;
+    max-width: 450px;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    object-fit: cover;
+}
+
+.news-card p {
+    font-size: 1.1rem;
+    text-align: center;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Espaço para o ícone central */
+#icon-space {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0; /* Espaçamento entre as caixas */
+}
+
+#icon-space img {
+    width: 150px; /* Tamanho do ícone */
+    height: auto;
+}
+
+/* Ajuste de Responsividade */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.4rem;
+    }
+
+    nav a img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .news-card p {
+        font-size: 1rem;
+    }
+}

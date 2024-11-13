@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Clique com Recorde</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4e54c8">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: linear-gradient(135deg, #4e54c8, #8f94fb);
+            color: #ffffff;
+            min-height: 100vh;
+            padding-top: 70px; /* Para dar espaço para a nav fixa */
+        }
+
+        nav {
+            width: 100%;
+            background: rgba(56, 72, 130, 0.9); /* Fundo sólido */
+            padding: 15px;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.4em;
+            margin: 0 20px;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        nav a:hover {
+            color: #cef2b4;
+            transform: scale(1.1);
+        }
+
+        nav .icon {
+            margin-right: 8px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px; /* Diminuir o tamanho da caixa */
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            margin-top: 90px; /* Para evitar sobreposição com a nav fixa */
+        }
+
+        .title {
+            font-size: 2.2rem;
+            color: #ffdf6b;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .score, .timer, .record {
+            font-size: 1.3rem;
+            margin: 10px 0;
+            color: #ffdf6b;
+        }
+
+        .ball {
+            width: 80px; /* Ajustando o tamanho */
+            height: 80px; /* Ajustando o tamanho */
+            background: radial-gradient(circle, #ff6b6b, #ff4747);
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+            margin: 20px 0; /* Ajustando o espaçamento */
+            transition: transform 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .ball:active {
+            transform: scale(0.9);
+        }
+
+        .message {
+            font-size: 1.2rem;
+            color: #ffdf6b;
+            margin-top: 20px;
+            text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .start-button, .restart-button {
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            color: #ffffff;
+            background: linear-gradient(135deg, #ff6b6b, #ff4747);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            margin-top: 20px;
+        }
+
+        .start-button:hover, .restart-button:hover {
+            background: linear-gradient(135deg, #ff4747, #ff6b6b);
+            transform: scale(1.05);
+        }
+
+        .start-button:focus, .restart-button:focus {
+            outline: none;
+        }
+
+        /* Responsividade */
+        @media (max-width: 500px) {
+            .container {
+                padding: 15px; /* Ajuste no padding */
+                max-width: 320px; /* Caixa ainda menor */
+            }
+
+            .title {
+                font-size: 1.8rem; /* Fonte menor */
+            }
+
+            .score, .timer, .record {
+                font-size: 1.1rem; /* Fonte menor */
+            }
+
+            .ball {
+                width: 70px; /* Ajuste na bolinha */
+                height: 70px; /* Ajuste na bolinha */
+                margin: 15px 0; /* Ajuste no espaçamento */
+            }
+
+            .start-button, .restart-button {
+                font-size: 1rem; /* Ajuste no tamanho do texto do botão */
+                padding: 10px 25px; /* Botão mais compacto */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navegação -->
+    <nav>
+        <a href="bitTales.html"><i class="fas fa-home icon"></i>Início</a>
+    </nav>
+
+    <!-- Conteúdo -->
+    <div class="container">
+        <div class="title">Jogo de Clique</div>
+        <div class="score">Pontuação: <span id="score">0</span></div>
+        <div class="timer">Tempo: <span id="timer">10</span>s</div>
+        <div class="record">Recorde: <span id="record">0</span></div>
+        <div class="ball" id="ball" style="display: none;"></div>
+        <button class="start-button" id="startButton">Iniciar Jogo</button>
+        <button class="restart-button" id="restartButton" style="display: none;">Jogar Novamente</button>
+        <div class="message" id="message"></div>
+    </div>
+
+    <script>
+        const ball = document.getElementById("ball");
+        const scoreDisplay = document.getElementById("score");
+        const timerDisplay = document.getElementById("timer");
+        const messageDisplay = document.getElementById("message");
+        const recordDisplay = document.getElementById("record");
+        const startButton = document.getElementById("startButton");
+        const restartButton = document.getElementById("restartButton");
+
+        let score = 0;
+        let gameDuration = 10; // duração do jogo em segundos
+        let timeRemaining = gameDuration;
+        let isGameOver = true;
+
+        function startGame() {
+            score = 0;
+            timeRemaining = gameDuration;
+            isGameOver = false;
+            scoreDisplay.textContent = score;
+            timerDisplay.textContent = timeRemaining;
+            messageDisplay.textContent = "Toque na bolinha!";
+            ball.style.display = "inline-block";
+            startButton.style.display = "none";
+            restartButton.style.display = "none";
+            ball.addEventListener("click", incrementScore);
+
+            const countdown = setInterval(() => {
+                if (timeRemaining > 0) {
+                    timeRemaining--;
+                    timerDisplay.textContent = timeRemaining;
+                } else {
+                    clearInterval(countdown);
+                    endGame();
+                }
+            }, 1000);
+        }
+
+        function endGame() {
+            isGameOver = true;
+            ball.style.display = "none";
+            restartButton.style.display = "inline-block";
+            ball.removeEventListener("click", incrementScore);
+            messageDisplay.textContent = `Fim de jogo! Sua pontuação final é: ${score}`;
+            updateRecord();
+        }
+
+        function incrementScore() {
+            if (!isGameOver) {
+                score++;
+                scoreDisplay.textContent = score;
+            }
+        }
+
+        function updateRecord() {
+            let record = localStorage.getItem("record") || 0;
+            if (score > record) {
+                localStorage.setItem("record", score);
+                record = score;
+                messageDisplay.textContent += " - Novo Recorde!";
+            }
+            recordDisplay.textContent = record;
+        }
+
+        function loadRecord() {
+            const record = localStorage.getItem("record") || 0;
+            recordDisplay.textContent = record;
+        }
+
+        startButton.addEventListener("click", startGame);
+        restartButton.addEventListener("click", startGame);
+
+        loadRecord();
+    </script>
+
+</body>
+</html>

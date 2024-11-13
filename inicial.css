@@ -1,0 +1,175 @@
+/* Reseta margem e padding de todos os elementos e configura o box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Modal */
+.modal {
+    display: none; /* Inicialmente escondido */
+    position: fixed; /* Fixar o modal na tela */
+    top: 50%; /* Coloca o modal a 50% da altura da tela */
+    left: 50%; /* Coloca o modal a 50% da largura da tela */
+    transform: translate(-50%, -50%); /* Move o modal para garantir que ele seja centralizado */
+    z-index: 1000; /* Garantir que o modal fique acima de outros elementos */
+    background-color: rgba(0, 0, 0, 0.6); /* Fundo semitransparente */
+    width: 100%; /* Largura do fundo (100% da tela) */
+    height: 100%; /* Altura do fundo (100% da tela) */
+    display: flex; /* Usar flexbox para centralizar o conteúdo */
+    justify-content: center; /* Alinha horizontalmente */
+    align-items: center; /* Alinha verticalmente */
+}
+
+/* Conteúdo do modal */
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    width: 80%; /* Largura do modal */
+    max-width: 500px; /* Largura máxima do modal */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombra para destacar */
+}
+
+/* Título do modal */
+.modal-content h2 {
+    color: #388E3C;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+/* Botão de fechar */
+.close {
+    color: #aaa;
+    font-size: 35px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.close:hover {
+    color: #555;
+}
+
+
+
+/* Estilos do body com uma imagem de fundo */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('img/main 1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Fixa a imagem no viewport */
+    background-repeat: no-repeat; /* Evita repetições */
+    color: #333;
+}
+
+/* Estilo do header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    background-color: rgba(109, 163, 126, 0.488);
+    color: white;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo do título */
+.header h1 {
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+/* Ícones do header */
+.icons {
+    display: flex;
+    gap: 0.5em;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #6da37e;
+    font-size: 1.2em;
+}
+
+/* Área principal de conteúdo */
+.content {
+    display: flex;
+    justify-content: center;
+    padding: 2em 1em;
+    width: 100%;
+}
+
+/* Grid dos cards */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1em;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Estilo dos cards */
+.card {
+    background-color: #ebead9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* Links abaixo das imagens nos cards */
+.card a {
+    display: block;
+    color: #6da37e;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.card a:hover {
+    color: #4b7f5e;
+    text-decoration: underline;
+}
+
+/* Estilo do botão principal */
+button {
+    background-color: #6da37e;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 1.5em;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #4b7f5e;
+}
